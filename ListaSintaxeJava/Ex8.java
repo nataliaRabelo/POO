@@ -41,7 +41,7 @@ public class Main {
         int somaDiagonalSecundaria = 0;
         for (int i = 0, j = n-1; i < n; i++, j--){
             somaDiagonalPrimaria += matriz[i][i];
-            somaDiagonalSecundaria += matriz[j][j];
+            somaDiagonalSecundaria += matriz[i][j];
         }
         if(soma != somaDiagonalPrimaria || soma != somaDiagonalSecundaria){
             return false;

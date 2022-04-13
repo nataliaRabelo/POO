@@ -3,9 +3,19 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Natália Bruno Rabelo
+ */
+
+/**
+ * Esta classe é responsável por administrar a loja.
+ */
 public class Loja {
     ArrayList<Celular> listaDeCelulares = new ArrayList<>();
 
+    /**
+     * Este método é responsável por criar uma instância do objeto celular e adicioná-lo à lista de celulares.
+     */
     public void criarCelular() {
         Celular celular = new Celular();
         Scanner myObj = new Scanner(System.in);
@@ -17,6 +27,9 @@ public class Loja {
         System.out.println("------------------------------------------------------------------------------------------");
     }
 
+    /**
+     * Este método é responsável por encontrar uma instância do objeto celular e decrementar uma unidade da bateria após a leitura e impressão de uma mensagem de texto.
+     */
     public void enviarMensagem(){
         Scanner myObj = new Scanner(System.in);
         System.out.println("Digite de qual celular deseja enviar a mensagem de texto, para isso, digite o nome de usuario: ");
@@ -33,6 +46,9 @@ public class Loja {
         }
     }
 
+    /**
+     * Este método é responspavel por encontrar uma instância do objeto celular e decrementar uma unidade da bateria após simular uma ligação onde cada linha representa 5 segundos da ligação.
+     */
     public void realizarLigacao(){
         Scanner myObj = new Scanner(System.in);
         System.out.println("Digite de qual celular deseja realizar a ligacao, para isso, digite o nome de usuario: ");
@@ -63,6 +79,9 @@ public class Loja {
         }
     }
 
+    /**
+     * Este método é responsável por encontrar uma instância do objeto celular na lista de celulares por meio do nome do dono do celular e imprimir o estado atual da bateria.
+     */
     public void mostrarBateria(){
         Scanner myObj = new Scanner(System.in);
         System.out.println("Digite de qual celular deseja exibir o nivel de bateria, para isso, digite o nome de usuario: ");

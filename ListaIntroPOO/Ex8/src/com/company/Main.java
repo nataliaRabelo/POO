@@ -1,10 +1,16 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Natália Bruno Rabelo
+ */
 public class Main {
 
+    /**
+     * Este métdo é responsável por ler as decisões do usuário e chamar as respectivas funções necessárias.
+     *
+     */
     public static void main(String[] args) {
         System.out.println("Bem-vindo a loja de celulares!");
         Loja loja = new Loja();

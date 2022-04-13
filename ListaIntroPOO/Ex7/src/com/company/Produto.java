@@ -4,7 +4,6 @@ package com.company;
  * @author Natália Bruno Rabelo.
  */
 
-import java.util.ArrayList;
 
 /**
  * Esta classe é responsável por representar uma entidade Produto.
@@ -12,8 +11,11 @@ import java.util.ArrayList;
 public class Produto {
 
     public String nome;
-    public float preco;
-    public int quantidade;
+    public double preco;
 
+    Produto(String nome, double d) {
+        this.nome = nome;
+        this.preco = d;
+    }
 }
 

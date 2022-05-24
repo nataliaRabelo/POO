@@ -1,20 +1,13 @@
 package com.company;
 
-import java.math.BigInteger;
-
+/**
+ * @author Natália Bruno Rabelo.
+ * Esta classe é responsável por representar uma entidade Cliente.
+ */
 public class Cliente {
 
     private String cpf;
     private String nome;
-
-    public Cliente(String cpf, String nome) {
-        this.cpf = cpf;
-        this.nome = nome;
-    }
-    public Cliente(){
-
-    }
-
 
     public String getNome() {
         return this.nome;

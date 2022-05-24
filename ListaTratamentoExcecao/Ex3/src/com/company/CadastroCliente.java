@@ -1,47 +1,70 @@
 package com.company;
 
-
+/**
+ * @author Natália Bruno Rabelo.
+ * Esta classe é responsável por administrar um cadastro de clientes.
+ */
 public class CadastroCliente {
 
     private Cliente[] clientes = new Cliente[10];
 
+    /**
+     * Este método é responsável por inserir um cliente ao registro de clientes.
+     * @param cliente
+     * @throws ClienteJaExistenteException
+     * @throws ClienteInexistenteException
+     */
     public void inserirCliente(Cliente cliente) throws ClienteJaExistenteException, ClienteInexistenteException {
-        int contador = 0;
+        int count = 0;
         for (int i = 0; i < clientes.length; i++){
-            if(i == 10 && clientes[i] != null){
+            if(i == 9 && clientes[i] != null){
                 throw new RepositorioException("Nao eh possivel adicionar mais clientes. O registro está cheio.");
             }
-            else if(verificarSeClienteInseridoJaEstaNaLista(clientes[i]) == true){
+            else if(clientes[i] != null && cliente.getCpf().equals(clientes[i].getCpf())){
                 throw new ClienteJaExistenteException("Este cliente nao pode ser inserido. Porque este ja consta no registro.");
             }
-            else if (clientes[i] == null && contador == 0){
+            else if (clientes[i] == null && count == 0){
                 clientes[i] = cliente;
-                contador++;
+                count++;
+                System.out.println("Um cliente esta sendo adicionado: " + clientes[i] + " | " + clientes[i].getNome() +  " | " + clientes[i].getCpf());
             }
+
         }
 
     }
 
-    public void buscarCliente(Cliente cliente) throws ClienteInexistenteException {
+    /**
+     * Este método é responsável por buscar um cliente no registro de clientes.
+     * @param cpf
+     * @throws ClienteInexistenteException
+     */
+    public void buscarCliente(String cpf) throws ClienteInexistenteException {
+        int count = 0;
         for (int i = 0; i < clientes.length; i++){
-            if(i == 10 && clientes[i] != cliente){
+            if(clientes[0] == null){
+                throw new NullPointerException("A lista esta nula, nao foi possivel buscar cliente");
+            }
+            else if((clientes[i] != null && i == 9 && !(clientes[i].getCpf().equals(cpf))) && count == 0){
                 throw new ClienteInexistenteException("Nao eh possivel encontrar cliente. O cliente nao esta cadastrado.");
             }
-            else if(clientes[i] == cliente){
+            else if(clientes[i] != null && clientes[i].getCpf().equals(cpf) && count == 0){
                 System.out.println("O cliente foi achado: " + clientes[i] + " | " + clientes[i].getNome() +  " | " + clientes[i].getCpf());
+                count++;
             }
         }
     }
 
-    public boolean verificarSeClienteInseridoJaEstaNaLista(Cliente cliente) throws ClienteInexistenteException {
-        for (int i = 0; i < clientes.length; i++){
-            if(i == 10 && clientes[i] != cliente){
-                throw new ClienteInexistenteException("Nao eh possivel verificar cliente na lista. O cliente nao esta cadastrado.");
-            }
-            else if(cliente.getCpf() == clientes[i].getCpf()){
-                return true;
+    /**
+     * Este método é responsável por exibir na tela a lista de clientes registrados.
+     */
+    public void printarLista(){
+        System.out.println("------------- LISTA DE CLIENTES -------------");
+        for (Cliente cliente : clientes) {
+            if (cliente != null) {
+                System.out.println(cliente + " | " + cliente.getNome() + " | " + cliente.getCpf());
             }
         }
-        return false;
+        System.out.println("---------------------------------------------");
     }
+
 }
